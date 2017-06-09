@@ -1,0 +1,26 @@
+{
+  "name": "riotjs-webpack-template",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:static && npm run build:js && npm run build:sass",
+    "build:static": "cp -r ./src/static/* ./dist/",
+    "build:js": "webpack",
+    "build:sass": "node-sass ./src/sass/style.sass ./dist/css/style.css --output-style compressed",
+    "start": "npm run build && webpack-dev-server --content-base ./dist"
+  },
+  "dependencies": {
+    "riot": "^3.6.0",
+    "riot-route": "^3.1.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015-riot": "^1.1.0",
+    "bulma": "^0.4.2",
+    "node-sass": "^4.5.3",
+    "riot-tag-loader": "^1.0.0",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
