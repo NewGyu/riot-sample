@@ -1,8 +1,17 @@
+process.env.NODE_ENV = process.env.NODE_ENV || "DEV";
+
 const webpack = require('webpack');
 const path = require('path');
+const fs = require("fs");
+const config = require("config");
+
+// WebpackでまとめたJSからConfigを読み込む方法
+// See: https://github.com/lorenwest/node-config/wiki/Webpack-Usage
+const configFilePath = path.resolve(__dirname, "dist/config.json");
+fs.writeFileSync(configFilePath, JSON.stringify(config));
 
 module.exports = {
-  entry: "./src/app.tag",
+  entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: 'js/app.js'
@@ -35,4 +44,9 @@ module.exports = {
       }
     })
   ],
+  resolve: {
+    alias: {
+      config: configFilePath
+    }
+  }
 };
