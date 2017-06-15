@@ -1,15 +1,18 @@
-import route from "riot-route";
-import "./tags/pages/page1.tag";
-import "./tags/pages/page2.tag";
+import "./parts/logout-button.tag";
+import "./parts/menu-button.tag";
+import "./pages/page1.tag";
+import "./pages/page2.tag";
 
-<app>
+<authorized-app>
   <header class="hero is-primary">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">Riotのサンプル</h1>
-        <h2 class="subtitle">{ subtitle }</h2>
+    <nav class="nav">
+      <div class="nav-left">
+        <menu-button></menu-button>
       </div>
-    </div>
+      <div class="nag-right">
+        <logout-button></logout-button>
+      </div>
+    </nav>
   </header>
 
   <nav class="tabs is-boxed">
@@ -34,23 +37,20 @@ import "./tags/pages/page2.tag";
   </article>
 
   <script>
-    route("/page1", () => {
+    import route from "riot-route";
+    const rt = route.create();
+    rt("/page1", () => {
       this.activePage = "page1";
       this.subtitle = "絵のページ";
       this.update();
       riot.mount("page", "page1");
     });
-    route("/page2", () => {
+    rt("/page2", () => {
       this.activePage = "page2";
       this.subtitle = "音楽のページ";
       this.update();
       riot.mount("page", "page2");
     });
-    route(() => {
-      route("/page1");
-    });
-    route.start(true);
   </script>
-</app>
+</authorized-app>
 
-riot.mount("app");
