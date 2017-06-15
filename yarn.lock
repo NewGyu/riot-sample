@@ -2082,6 +2082,12 @@ object.omit@^2.0.0:
     for-own "^0.1.4"
     is-extendable "^0.1.1"
 
+obseriot@^0.3.9:
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/obseriot/-/obseriot-0.3.9.tgz#9722b3559cb0d649adce8bddfbba2d68a57f214c"
+  dependencies:
+    riot-observable "3.0.0"
+
 obuf@^1.0.0, obuf@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.1.tgz#104124b6c602c6796881a042541d36db43a5264e"
@@ -2536,7 +2542,7 @@ riot-compiler@^3.2.1, riot-compiler@^3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/riot-compiler/-/riot-compiler-3.2.3.tgz#db3cf1e920cd313f19eeac4f0c5314fc21db6314"
 
-riot-observable@^3.0.0:
+riot-observable@3.0.0, riot-observable@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/riot-observable/-/riot-observable-3.0.0.tgz#8bbd2daf72a2141bb043082df4023dc504bad2eb"
 

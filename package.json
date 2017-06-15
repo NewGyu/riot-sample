@@ -12,6 +12,7 @@
   "dependencies": {
     "amazon-cognito-identity-js": "^1.18.0",
     "config": "^1.26.1",
+    "obseriot": "^0.3.9",
     "riot": "^3.6.0",
     "riot-route": "^3.1.1"
   },
