@@ -10,6 +10,7 @@
     "start": "npm run build && webpack-dev-server --content-base ./dist"
   },
   "dependencies": {
+    "amazon-cognito-identity-js": "^1.18.0",
     "config": "^1.26.1",
     "riot": "^3.6.0",
     "riot-route": "^3.1.1"
