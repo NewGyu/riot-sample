@@ -1,6 +1,7 @@
 import route from "riot-route";
 import "./tags/pages/page1.tag";
 import "./tags/pages/page2.tag";
+import "./tags/pages/async.tag";
 
 <app>
   <header class="hero is-primary">
@@ -26,6 +27,12 @@ import "./tags/pages/page2.tag";
           <span>page2</span>
         </a>
       </li>
+      <li class="{ activePage == "async" ? "is-active" : "" }">
+        <a href="#/async">
+          <span class="icon is-small"><i class="fa fa-clock-o"></i></span>
+          <span>async</span>
+        </a>
+      </li>
     </ul>
   </nav>
 
@@ -45,6 +52,12 @@ import "./tags/pages/page2.tag";
       this.subtitle = "音楽のページ";
       this.update();
       riot.mount("page", "page2");
+    });
+    route("/async", () => {
+      this.activePage = "async";
+      this.subtitle = "async, generatorのページ";
+      this.update();
+      riot.mount("page", "async-page");
     });
     route(() => {
       route("/page1");
