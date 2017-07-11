@@ -3,6 +3,7 @@ const path = require('path');
 
 module.exports = {
   entry: "./src/app.tag",
+  devtool: 'cheap-module-eval-source-map',
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: 'js/app.js'
