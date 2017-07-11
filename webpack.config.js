@@ -20,7 +20,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015-riot']
+            presets: ['es2015-riot'],
+            plugins: ["transform-regenerator", "transform-runtime"]
           }
         },
         exclude: /node_modules/,
