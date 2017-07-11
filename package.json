@@ -20,6 +20,7 @@
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-es2015-riot": "^1.1.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "bulma": "^0.4.2",
     "node-sass": "^4.5.3",
     "riot-tag-loader": "^1.0.0",
