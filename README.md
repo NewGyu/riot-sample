@@ -1,4 +1,4 @@
-# RiotJSとWebpackのサンプル
+# RiotJSとWebpackのサンプル
 
 [RiotJS](http://riotjs.com/)で簡単なページ遷移をするサンプル。
 
@@ -22,7 +22,7 @@
 
 ## 使い方
 
-依存ライブラリ一式をインストール
+依存ライブラリ一式をインストール
 
 ```
 $ npm install

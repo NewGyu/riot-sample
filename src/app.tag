@@ -1,55 +1,42 @@
 import route from "riot-route";
-import "./tags/pages/page1.tag";
-import "./tags/pages/page2.tag";
+
+import "./tags/parts/lv1-tab.tag";
+import "./tags/pages/cat1/index.tag";
+import "./tags/pages/cat2/index.tag";
 
 <app>
   <header class="hero is-primary">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">Riotのサンプル</h1>
-        <h2 class="subtitle">{ subtitle }</h2>
       </div>
     </div>
   </header>
 
-  <nav class="tabs is-boxed">
-    <ul>
-      <li class="{ activePage == "page1" ? "is-active" : "" }">
-        <a href="#/page1">
-          <span class="icon is-small"><i class="fa fa-image"></i></span>
-          <span>page1</span>
-        </a>
-      </li>
-      <li class="{ activePage == "page2" ? "is-active" : "" }">
-        <a href="#/page2">
-          <span class="icon is-small"><i class="fa fa-music"></i></span>
-          <span>page2</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-
-  <article class="section">
-    <page class="container"></page>
-  </article>
+  <lv1-tab tabs= { tabs } active={ activeTab } />
+  <article id="cate-page"></article>
 
   <script>
-    route("/page1", () => {
-      this.activePage = "page1";
-      this.subtitle = "絵のページ";
-      this.update();
-      riot.mount("page", "page1");
+    this.tabs = [
+      { caption: "cat1", link: "#/cat1/1" },
+      { caption: "cat2", link: "#/cat2/1" },
+    ];
+
+    this.route = route.create();
+    this.route("/cat1/*", ()=>{
+      riot.mount("#cate-page", "cat1-page");
+      this.update({ activeTab: "cat1" });
     });
-    route("/page2", () => {
-      this.activePage = "page2";
-      this.subtitle = "音楽のページ";
-      this.update();
-      riot.mount("page", "page2");
+    this.route("/cat2/*", ()=>{
+      riot.mount("#cate-page", "cat2-page");
+      this.update({ activeTab: "cat2" });
     });
-    route(() => {
-      route("/page1");
-    });
+
     route.start(true);
+
+    this.on("unmount", ()=>{
+      this.route.stop();
+    });
   </script>
 </app>
 
